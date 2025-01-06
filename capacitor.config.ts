@@ -1,9 +1,16 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
+  appId: 'io.ionic.iMoto',
   appName: 'iMoto',
-  webDir: 'www'
+  webDir: 'www',
+  bundledWebRuntime: false,
+  cordova: {},
+  plugins: {
+    SplashScreen: {
+      launchShowDuration: 0
+    }
+  }
 };
 
 export default config;

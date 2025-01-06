@@ -1,27 +1,184 @@
-#container {
+.transparent-toolbar {
+  --background: transparent;
+  box-shadow: none; /* Esto elimina la sombra, si hay alguna */
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100%; /* Asegúrate de que ocupe toda la altura */
+  background-color: black;
+  }
+
+.map {
+  flex: 1; /* El mapa ocupará el espacio restante */
+  height: 100%; /* Asegúrate de que el mapa ocupe toda la altura */
+}
+
+.info {
+  flex: 0 0 350px; /* La sección de información tendrá un ancho fijo */
+  padding: 10px 20px 10px 20px; /* Espaciado interno */
+  overflow-y: auto; /* Permitir desplazamiento si es necesario */
+  color: #ffffff;
+}
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.battery-info, .speed-altitude, .accel-gyro {
+  margin-bottom: 20px; /* Espaciado entre secciones */
+}
+
+/* Estilos para reducir el tamaño del texto */
+p {
+  font-size: 0.6rem; /* Tamaño de fuente más pequeño para <p> */
+  margin: 0; /* Eliminar márgenes para evitar espacio adicional */
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 0.9rem; /* Tamaño de fuente más pequeño para h1 */
+}
+
+h3 {
+  font-size: 0.8rem; /* Tamaño de fuente más pequeño para h3 */
+  color: #fff;
   text-align: center;
+}
 
+small {
+  font-size: 0.7rem; /* Tamaño de fuente más pequeño para small */
+}
+
+.speed-text {
+  padding-top: 10px;
+  font-size: 6rem; /* Tamaño de fuente grande para la velocidad */
+  text-align: center; /* Alineación de texto al centro */
+  color: #fff; /* Color para destacar la velocidad */
+  line-height: 0.8; /* Ajusta el interlineado a 1 (o un valor menor si es necesario) */
+}
+
+.speed-unit {
+  font-size: 1rem; /* Tamaño de fuente más pequeño para la unidad */
+  text-align: center; /* Alineación de texto al centro */
+  display: block; /* Asegúrate de que sea un bloque para centrar correctamente */
+  margin: 0 auto; /* Centra el bloque en su contenedor */
+}
+
+.max-speed {
+  font-size: 1.2rem; /* Tamaño de fuente para la velocidad máxima */
+  color: #ffffff; /* Color negro para la velocidad máxima */
+}
+
+
+ion-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.battery-satellite-container {
+  display: flex; /* Utiliza flexbox para alinear los elementos */
+  justify-content: space-between; /* Espacio entre los elementos */
+  align-items: center; /* Alinea verticalmente al centro */
+  padding: 10px 0 25px 0; /* Ajuste del espaciado interno */
+  margin: 0; /* Asegúrate de que no haya márgenes */
+  max-height: 15px; /* Altura máxima de 15px */
+  overflow: hidden; /* Oculta el contenido que excede la altura máxima */
+}
+
+/* bateria */
+.battery-info {
+  padding: 20px 0 0 0;
+  display: flex;
+  align-items: center; /* Alinea verticalmente al centro */
+}
+
+.battery-icon {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Asegura que se empuje hacia la derecha */
+  padding: 3px;
+}
+
+.battery-body {
+  width: 30px;
+  height: 15px;
+  border: 2px solid #fff;
+  position: relative;
+  background-color: #fff;
+  border-radius: 4px;
+  
+}
+
+.battery-level {
+  height: 100%;
+  transition: width 0.3s ease;
+  background-color: rgb(0, 176, 0);
+  padding: 2px;
+}
+
+.battery-percentage {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  font-size: 6px;
+  font-weight: bold; 
+  color: #ffffff;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.battery-tip {
+  width: 1px; 
+  height: 6px; 
+  background-color: #fff; 
+  margin-left: 1px; 
+  border-radius: 2px; 
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+/* satelites */
+.satellite-info {
+  display: flex;
+  align-items: center; /* Alinea verticalmente al centro */
+  margin: 0; /* Eliminar márgenes */
+  padding: 0; /* Eliminar padding */
 }
 
-#container a {
-  text-decoration: none;
+.satellite-bars {
+  display: flex;
+  align-items: flex-end; /* Alinea las barras hacia la parte inferior */
+  margin: 0; /* Eliminar márgenes */
+  padding: 0; /* Eliminar padding */
+}
+
+.satellite-bar {
+  position: relative;
+  width: 3px; /* Ancho de las barras */
+  height: 12px; /* Altura máxima de las barras */
+  background-color: rgb(89, 88, 88); /* Color base de las barras */
+  margin-right: 3px; /* Espacio entre las barras */
+}
+
+.bar-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(0, 255, 0); /* Color de relleno */
+  transition: height 0.3s ease-in-out; /* Transición suave para el cambio de altura */
+}
+
+.bar-fill.filled {
+  background-color: rgb(0, 255, 0); /* Color para las barras llenas */
+}
+
+.satellite-count {
+  margin-left: 5px; /* Espacio entre las barras y el número */
+  font-weight: bold;
+  font-size: 10px;   /* Ajusta el tamaño según tu preferencia */
+  color: #fff;       /* O el color que prefieras */
 }
