@@ -1,0 +1,12 @@
+Generated 18 resources for Android
+WARN:	Error occurred while copying resources/android/icon/mdpi-foreground.png
+WARN:	Error occurred while copying resources/android/icon/mdpi-background.png
+WARN:	Error occurred while copying resources/android/icon/hdpi-foreground.png
+WARN:	Error occurred while copying resources/android/icon/hdpi-background.png
+WARN:	Error occurred while copying resources/android/icon/xhdpi-foreground.png
+WARN:	Error occurred while copying resources/android/icon/xhdpi-background.png
+WARN:	Error occurred while copying resources/android/icon/xxhdpi-foreground.png
+WARN:	Error occurred while copying resources/android/icon/xxhdpi-background.png
+WARN:	Error occurred while copying resources/android/icon/xxxhdpi-foreground.png
+WARN:	Error occurred while copying resources/android/icon/xxxhdpi-background.png
+Copied 31 resource items to Android
