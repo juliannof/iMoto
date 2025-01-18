@@ -34,6 +34,7 @@
     "@capacitor/status-bar": "6.0.2",
     "@ionic/angular": "^8.0.0",
     "@xmldom/xmldom": "^0.9.6",
+    "date-fns": "^2.21.1",
     "ionicons": "^7.0.0",
     "leaflet": "^1.9.4",
     "rxjs": "~7.8.0",

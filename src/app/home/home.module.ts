@@ -1,18 +1,10 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { HomePage } from './home.page';
-
-const routes: Routes = [
-  {
-    path: '',
-    component: HomePage
-  }
-];
+import { BrowserModule } from '@angular/platform-browser';
+import { IonicModule } from '@ionic/angular';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  imports: [
-    RouterModule.forChild(routes),
-    HomePage // Importa el componente independiente
-  ]
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  bootstrap: [AppComponent] // Asegúrate de que AppComponent esté configurado como independiente
 })
-export class HomePageModule {}
+export class AppModule {}

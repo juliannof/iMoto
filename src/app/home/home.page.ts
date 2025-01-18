@@ -126,6 +126,12 @@ export class HomePage implements AfterViewInit {
     KeepAwake.allowSleep(); // Permitir que la pantalla se apague cuando se cierra la vista
   }
 
+
+
+  goToViajesList() {
+    this.router.navigate(['/viajes-list']);
+  }
+  
   // Manejo del bluetooth
 
   startConnectionLoop() {
@@ -476,7 +482,7 @@ async startNewTravel() {
   this.travelFileName = `Travels/travel_${formattedDate}.csv`;
   console.log('Nombre del archivo de viaje:', this.travelFileName);
   // Crear el archivo CSV con encabezados
-  const headers = 'Latitud,Longitud,Velocidad,Altitud,Satelite,AceleracionX,AceleracionY,AceleracionZ,GiroX,GiroY,GiroZ,BatV,BatP,Roll,Pitch\n';
+  const headers = 'Timestamp,Latitud,Longitud,Velocidad,Altitud,Satelite,AceleracionX,AceleracionY,AceleracionZ,GiroX,GiroY,GiroZ,BatV,BatP,Roll,Pitch\n';
   try {
     await Filesystem.writeFile({
       path: this.travelFileName,
@@ -493,7 +499,12 @@ async startNewTravel() {
 
 async saveTravelData() {
   console.log('saveTravelData() se está ejecutando');
-  const travelData = `${this.lat},${this.lon},${this.speed},${this.altitude},${this.Satellite},${this.accelX},${this.accelY},${this.accelZ},${this.GiroX},${this.GiroY},${this.GiroZ},${this.BatteryV},${this.BatteryP},${this.roll},${this.pitch}\n`;
+
+  // Obtener el timestamp actual en formato ISO 8601
+  const timestamp = new Date().toISOString();
+
+  // Crear la cadena de datos con el timestamp al principio
+  const travelData = `${timestamp},${this.lat},${this.lon},${this.speed},${this.altitude},${this.Satellite},${this.accelX},${this.accelY},${this.accelZ},${this.GiroX},${this.GiroY},${this.GiroZ},${this.BatteryV},${this.BatteryP},${this.roll},${this.pitch}\n`;
 
   console.log('Datos a guardar:', travelData);
   console.log('Nombre del archivo:', this.travelFileName);
